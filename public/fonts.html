@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.dataset.theme="light"}catch(e){}</script>
+  <title>Mẫu font chữ — BotForex99</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0a1220">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Unbounded:wght@600;700&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&family=Lexend:wght@400;500;700;800&family=Montserrat:wght@600;800&family=Nunito+Sans:wght@400;600;700&family=Chakra+Petch:wght@500;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Manrope:wght@400;500;700&family=Playfair+Display:wght@700;800&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .fp-tools { position: sticky; top: var(--header-h); z-index: 5; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 12px 0; background: var(--paper); border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+    .fp-tools input { flex: 1 1 260px; min-height: 44px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--ink); font: 500 15px var(--f-body); }
+    .fp-grid { display: grid; gap: 20px; padding-bottom: 96px; }
+    .fp { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+    .fp__head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; padding: 14px 22px; border-bottom: 1px solid var(--line); font: 500 13px/1.4 var(--f-mono); color: var(--ink-3); }
+    .fp__head b { color: var(--blue); font-size: 14px; }
+    .fp__body { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; padding: 26px 22px 28px; }
+    .fp__eyebrow { font-family: var(--m); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+    .fp__h1 { font-family: var(--d); font-weight: var(--dw); font-size: clamp(28px, 4.4vw, 46px); line-height: 1.12; letter-spacing: var(--ls, -.01em); margin: 0 0 14px; }
+    .fp__h1 em { font-style: normal; color: var(--blue); }
+    .fp__p { font-family: var(--b); font-size: 16px; line-height: 1.65; color: var(--ink-2); margin: 0 0 18px; }
+    .fp__btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .fp__btns .btn { font-family: var(--b); }
+    .fp__side { display: grid; gap: 12px; align-content: start; }
+    .fp__h3 { font-family: var(--d); font-weight: var(--dw); font-size: 20px; margin: 0; }
+    .fp__num { font-family: var(--m); font-weight: 700; font-size: 30px; letter-spacing: -.02em; }
+    .fp__num small { font-size: 13px; font-weight: 400; color: var(--ink-3); margin-left: 6px; letter-spacing: 0; }
+    .fp__log { font-family: var(--m); font-size: 12.5px; line-height: 1.7; background: var(--term); color: var(--term-text); border-radius: var(--r-sm); padding: 10px 14px; }
+    .fp__log .b { color: var(--buy); } .fp__log .g { color: var(--gold); }
+    .fp__note { font-family: var(--b); font-size: 14px; color: var(--ink-3); margin: 0; }
+    @media (max-width: 760px) { .fp__body { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+
+  <main class="wrap">
+    <section class="page-hero">
+      <span class="eyebrow">Tham khảo</span>
+      <h1>Mẫu font chữ</h1>
+      <p>Mỗi bộ gồm 3 font: <strong>tiêu đề</strong>, <strong>nội dung</strong> và <strong>số / log bot</strong>. Tất cả đều hỗ trợ tiếng Việt có dấu. Chọn bộ nào thì nhắn mình tên bộ đó.</p>
+    </section>
+
+    <div class="fp-tools">
+      <input id="fp-text" type="text" value="Để bot vào lệnh, bạn ngủ ngon." aria-label="Gõ thử tiêu đề">
+      <button class="btn btn--ghost btn--sm" type="button" id="fp-reset">Khôi phục câu mẫu</button>
+    </div>
+
+    <div class="fp-grid" id="fp-grid"></div>
+  </main>
+
+  <footer class="site-footer"></footer>
+
+  <script>
+    const SETS = [
+      { id: 'A', name: 'Hiện tại — Công nghệ, rộng', d: 'Unbounded', dw: 700, b: 'Be Vietnam Pro', m: 'JetBrains Mono',
+        note: 'Tiêu đề rộng, khỏe, rất "app công nghệ". Đang dùng trên web.' },
+      { id: 'B', name: 'Gọn gàng kiểu fintech', d: 'Space Grotesk', dw: 700, b: 'Inter', m: 'IBM Plex Mono',
+        note: 'Giống các app tài chính / sàn crypto. Gọn, hiện đại, dễ đọc trên điện thoại.' },
+      { id: 'C', name: 'Thân thiện, dễ đọc nhất', d: 'Lexend', dw: 800, b: 'Lexend', m: 'Roboto Mono',
+        note: 'Chữ tròn, thoáng, thiết kế để dễ đọc. Hợp người mới, người xem từ TikTok.' },
+      { id: 'D', name: 'Quen thuộc, mạnh mẽ', d: 'Montserrat', dw: 800, b: 'Nunito Sans', m: 'JetBrains Mono',
+        note: 'Phong cách phổ biến ở web Việt. Tiêu đề đậm, nổi bật, an toàn.' },
+      { id: 'E', name: 'Trader / kỹ thuật', d: 'Chakra Petch', dw: 700, b: 'Be Vietnam Pro', m: 'JetBrains Mono',
+        note: 'Chữ góc cạnh như màn hình giao dịch, game. Cá tính, đậm chất bot.' },
+      { id: 'F', name: 'Cá tính, hiện đại', d: 'Bricolage Grotesque', dw: 800, b: 'Manrope', m: 'IBM Plex Mono',
+        note: 'Tiêu đề có nét riêng, trẻ trung, khác biệt so với web forex thông thường.', ls: '-.02em' },
+      { id: 'G', name: 'Sang trọng, cao cấp', d: 'Playfair Display', dw: 800, b: 'Be Vietnam Pro', m: 'IBM Plex Mono',
+        note: 'Tiêu đề có chân, cảm giác quỹ đầu tư / tài chính cao cấp. Ít "công nghệ" hơn.', ls: '0' },
+    ];
+
+    const grid = document.getElementById('fp-grid');
+    grid.innerHTML = SETS.map((s) => `
+      <article class="fp" style="--d:'${s.d}';--dw:${s.dw};--b:'${s.b}';--m:'${s.m}';${s.ls ? `--ls:${s.ls};` : ''}">
+        <div class="fp__head"><b>Bộ ${s.id} · ${s.name}</b><span>Tiêu đề: ${s.d} · Nội dung: ${s.b} · Số: ${s.m}</span></div>
+        <div class="fp__body">
+          <div>
+            <div class="fp__eyebrow">MetaTrader 5 · Exness · Vantage</div>
+            <h2 class="fp__h1" data-title>Để bot vào lệnh, <em>bạn ngủ ngon</em>.</h2>
+            <p class="fp__p">Mở tài khoản qua link đối tác của mình, tải bot về cài lên MetaTrader là chạy. Có hướng dẫn từng bước, kẹt chỗ nào nhắn mình hỗ trợ.</p>
+            <div class="fp__btns"><span class="btn btn--buy btn--sm">Xem danh sách bot</span><span class="btn btn--ghost btn--sm">Hướng dẫn cài bot</span></div>
+          </div>
+          <div class="fp__side">
+            <h3 class="fp__h3">Mở tài khoản Exness qua link đối tác</h3>
+            <div class="fp__num">12.480<small>lượt truy cập</small></div>
+            <div class="fp__log"><span class="g">GoldTrendEA (XAUUSD,M15)</span> loaded<br><span class="b">buy 0.01 XAUUSD at 2650.85</span><br>close #18452731 P/L +3.20</div>
+            <p class="fp__note">${s.note}</p>
+          </div>
+        </div>
+      </article>`).join('');
+
+    const input = document.getElementById('fp-text');
+    const sample = input.value;
+    const apply = () => {
+      const v = input.value.trim();
+      document.querySelectorAll('[data-title]').forEach((h) => {
+        if (v === sample) h.innerHTML = 'Để bot vào lệnh, <em>bạn ngủ ngon</em>.';
+        else h.textContent = v || ' ';
+      });
+    };
+    input.addEventListener('input', apply);
+    document.getElementById('fp-reset').addEventListener('click', () => { input.value = sample; apply(); });
+  </script>
+  <script src="/assets/js/layout.js"></script>
+</body>
+</html>

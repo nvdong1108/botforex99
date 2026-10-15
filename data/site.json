@@ -1,0 +1,16 @@
+{
+  "brand": "BotForex99",
+  "owner": "Đông",
+  "tiktok": "https://www.tiktok.com/@botforex99",
+  "tiktokHandle": "@botforex99",
+  "telegram": "https://t.me/botforex99",
+  "zalo": "https://zalo.me/0000000000",
+  "exness": {
+    "link": "https://one.exness-track.com/a/YOUR_PARTNER_CODE",
+    "partnerCode": "YOUR_PARTNER_CODE"
+  },
+  "vantage": {
+    "link": "https://vigco.co/YOUR_VANTAGE_LINK",
+    "partnerCode": "YOUR_VANTAGE_CODE"
+  }
+}

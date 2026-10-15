@@ -1,0 +1,73 @@
+[
+  {
+    "id": "gold-trend-mt5",
+    "name": "Gold Trend EA",
+    "platform": "MT5",
+    "symbols": [
+      "XAUUSD"
+    ],
+    "timeframe": "M15",
+    "style": "Theo xu hướng",
+    "risk": "Trung bình",
+    "minDeposit": "500 USD",
+    "version": "1.0.0",
+    "updated": "2026-10-01",
+    "status": "Đang chạy",
+    "description": "Bot vào lệnh vàng theo xu hướng khung M15, có SL/TP cố định cho từng lệnh, không gồng lỗ, không nhồi lệnh.",
+    "features": [
+      "SL/TP cho mọi lệnh",
+      "Lọc tin tức",
+      "Tự dời SL hòa vốn"
+    ],
+    "download": "/downloads/GoldTrendEA.ex5",
+    "setFile": "/downloads/GoldTrendEA.set"
+  },
+  {
+    "id": "fx-grid-mt5",
+    "name": "FX Grid Safe",
+    "platform": "MT5",
+    "symbols": [
+      "EURUSD",
+      "GBPUSD"
+    ],
+    "timeframe": "H1",
+    "style": "Lưới (grid) có giới hạn",
+    "risk": "Cao",
+    "minDeposit": "1000 USD",
+    "version": "2.1.0",
+    "updated": "2026-09-12",
+    "status": "Đang chạy",
+    "description": "Bot lưới cho cặp tiền chính, giới hạn số lệnh tối đa và có cắt lỗ theo % tài khoản.",
+    "features": [
+      "Giới hạn số lệnh",
+      "Cắt lỗ theo % equity",
+      "Chỉ chạy phiên Âu–Mỹ"
+    ],
+    "download": "/downloads/FXGridSafe.ex5",
+    "setFile": "/downloads/FXGridSafe.set"
+  },
+  {
+    "id": "scalper-mt5",
+    "name": "Night Scalper",
+    "platform": "MT5",
+    "symbols": [
+      "EURUSD",
+      "USDJPY"
+    ],
+    "timeframe": "M5",
+    "style": "Lướt sóng đêm",
+    "risk": "Thấp",
+    "minDeposit": "200 USD",
+    "version": "0.9.0",
+    "updated": "2026-08-20",
+    "status": "Thử nghiệm",
+    "description": "Lướt sóng phiên Á khi thị trường đi ngang, lệnh ngắn, khối lượng nhỏ.",
+    "features": [
+      "Lệnh nhỏ",
+      "Đóng lệnh trước phiên Âu",
+      "Cần spread thấp"
+    ],
+    "download": "",
+    "setFile": ""
+  }
+]

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.dataset.theme="light"}catch(e){}</script>
+  <title>Hướng dẫn cài bot lên MT5 — BotForex99</title>
+  <meta name="description" content="Cách cài bot (Expert Advisor) lên MetaTrader 5 trên máy tính Windows: chép file, bật Algo Trading, nạp file .set và kiểm tra bot chạy.">
+  <meta name="theme-color" content="#0a1220">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header"></header>
+
+  <main class="wrap">
+    <section class="page-hero">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Trang chủ</a> / Hướng dẫn / Cài bot</nav>
+      <span class="eyebrow">Hướng dẫn · Cài bot</span>
+      <h1 class="reveal-up">Cài bot lên MetaTrader trên máy tính</h1>
+      <p class="reveal-up d1">Áp dụng cho Windows. Bot là file <span class="path">.ex5</span>, chạy trên MetaTrader 5 (MT5). Bot chỉ chạy khi máy tính và MetaTrader đang bật.</p>
+    </section>
+
+    <div class="guide">
+      <aside class="toc" aria-label="Mục lục">
+        <p>Các bước</p>
+        <ol>
+          <li><a href="#tai-mt">Cài MetaTrader</a></li>
+          <li><a href="#dang-nhap">Đăng nhập tài khoản</a></li>
+          <li><a href="#chep-bot">Chép bot vào Experts</a></li>
+          <li><a href="#bat-algo">Bật Algo Trading</a></li>
+          <li><a href="#gan-bot">Gắn bot vào biểu đồ</a></li>
+          <li><a href="#kiem-tra">Kiểm tra bot chạy</a></li>
+          <li><a href="#vps">Chạy 24/5 bằng VPS</a></li>
+        </ol>
+      </aside>
+
+      <ol class="timeline">
+        <li class="tl-step reveal" id="tai-mt">
+          <h3>Cài MetaTrader 5</h3>
+          <p>Tải MetaTrader 5 từ trang của sàn bạn dùng (Exness hoặc Vantage, mục <strong>Nền tảng</strong>). Cài như phần mềm bình thường.</p>
+          <div class="callout"><span>Nên tải bản của sàn thay vì bản chung trên mạng — đã có sẵn danh sách server của sàn, đăng nhập nhanh hơn.</span></div>
+        </li>
+
+        <li class="tl-step reveal" id="dang-nhap">
+          <h3>Đăng nhập tài khoản giao dịch</h3>
+          <p>Mở MetaTrader → <kbd>File</kbd> → <kbd>Login to Trade Account</kbd>. Nhập số tài khoản, mật khẩu giao dịch và chọn đúng server (ví dụ <span class="path">Exness-MT5Real8</span>).</p>
+          <p>Đăng nhập thành công khi góc dưới bên phải hiện tốc độ kết nối (ví dụ <span class="path">35 ms</span>), không phải "No connection".</p>
+        </li>
+
+        <li class="tl-step reveal" id="chep-bot">
+          <h3>Chép file bot vào thư mục Experts</h3>
+          <ul>
+            <li>Trong MetaTrader chọn <kbd>File</kbd> → <kbd>Open Data Folder</kbd></li>
+            <li>Mở thư mục <span class="path">MQL5\Experts</span></li>
+            <li>Dán file bot <span class="path">.ex5</span> vào đây</li>
+            <li>Nếu bot có file <span class="path">.set</span>, chép vào <span class="path">MQL5\Presets</span></li>
+          </ul>
+          <p>Quay lại MetaTrader, trong cửa sổ <strong>Navigator</strong> (<kbd>Ctrl</kbd>+<kbd>N</kbd>) chuột phải vào <strong>Expert Advisors</strong> → <kbd>Refresh</kbd>. Bot sẽ hiện trong danh sách.</p>
+        </li>
+
+        <li class="tl-step reveal" id="bat-algo">
+          <h3>Bật Algo Trading</h3>
+          <p>Bấm nút <strong>Algo Trading</strong> trên thanh công cụ cho đến khi biểu tượng chuyển xanh.</p>
+          <p>Vào <kbd>Tools</kbd> → <kbd>Options</kbd> → tab <strong>Expert Advisors</strong>, tick <strong>Allow algorithmic trading</strong>. Chỉ tick "Allow DLL imports" nếu hướng dẫn của bot yêu cầu.</p>
+        </li>
+
+        <li class="tl-step reveal" id="gan-bot">
+          <h3>Gắn bot vào biểu đồ</h3>
+          <ul>
+            <li>Mở biểu đồ đúng cặp tiền và khung thời gian bot yêu cầu (ví dụ <span class="path">XAUUSD</span>, <span class="path">M15</span>)</li>
+            <li>Kéo bot từ Navigator thả vào biểu đồ</li>
+            <li>Tab <strong>Common</strong>: tick <strong>Allow Algo Trading</strong></li>
+            <li>Tab <strong>Inputs</strong>: bấm <kbd>Load</kbd> → chọn file <span class="path">.set</span> đã chép ở bước 3 → <kbd>OK</kbd></li>
+          </ul>
+          <div class="callout callout--warn"><span><strong>Mỗi biểu đồ chỉ gắn 1 bot.</strong> Muốn chạy bot trên nhiều cặp, mở thêm biểu đồ cho từng cặp.</span></div>
+        </li>
+
+        <li class="tl-step reveal" id="kiem-tra">
+          <h3>Kiểm tra bot đang chạy</h3>
+          <p>Góc trên bên phải biểu đồ hiện tên bot kèm biểu tượng mũ xanh. Mở tab <strong>Experts</strong> ở cửa sổ Toolbox (<kbd>Ctrl</kbd>+<kbd>T</kbd>) — thấy dòng như sau là ổn:</p>
+          <div class="mini-term"><span class="dim">2026.10.15 09:00:01.120</span>  <span class="gold">GoldTrendEA (XAUUSD,M15)</span>  loaded successfully<br><span class="dim">2026.10.15 09:00:01.135</span>  automated trading is <span class="buy">enabled</span></div>
+          <p>Nếu thấy <strong>"automated trading is disabled"</strong>: kiểm tra lại nút Algo Trading ở bước 4.</p>
+        </li>
+
+        <li class="tl-step reveal" id="vps">
+          <h3>Chạy 24/5 bằng VPS (nên làm)</h3>
+          <p>Tắt máy là bot dừng. Để bot chạy liên tục, thuê VPS Windows (máy chủ ảo) rồi cài MetaTrader và bot lên đó theo đúng các bước trên. Một số sàn tặng VPS miễn phí khi tài khoản đủ điều kiện — hỏi mình để được hướng dẫn.</p>
+        </li>
+      </ol>
+    </div>
+
+    <div class="guide-cta reveal" style="margin-bottom:80px">
+      <div><h3>Kẹt ở bước nào?</h3><p>Chụp màn hình tab Experts và nhắn mình, mình xem giúp.</p></div>
+      <div class="contact-row">
+        <a class="btn btn--gold" data-site="telegram" target="_blank" rel="noopener">Nhắn Telegram</a>
+        <a class="btn btn--buy" href="/bot/">Tải bot</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <script src="/assets/js/layout.js"></script>
+</body>
+</html>
